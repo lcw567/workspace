@@ -43,13 +43,11 @@ public class RunException {
 		
 		String str = null;
 		//1. try ~  catch문 : 여기서 곧바로 예외를 처리하겠다.
-		
 		try {
 			str = br.readLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		
 		// 2. throws : 여기서 예외를 처리하지않고 현재 이 메소드를 호출한 곳으로 예외처리를 떠넘기겠다.
 		System.out.println("입력 : " + str);
@@ -59,7 +57,7 @@ public class RunException {
 		methodB();
 	}
 	
-	public void methodB() throws IOException  {
+	public void methodB() throws IOException {
 		methodC();
 	}
 	

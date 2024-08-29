@@ -15,11 +15,11 @@ public class Conversion {
 	 * -> 데이터 손실을 감수한다.
 	 */
 	public static void main(String[] args) {
-		double pi = 3.1415;
+		double pi = 3.141592;
 		int number = (int)pi;
 		
 		System.out.println(number);
-
+		
 		long num1 = 3000000007L;
 		int number2 = (int)num1;
 		System.out.println(number2);
@@ -27,6 +27,7 @@ public class Conversion {
 		short num2 = 1;
 		short num3 = 2;
 		short num4 = (short)(num2 + num3);
+		
 	}
 
 }

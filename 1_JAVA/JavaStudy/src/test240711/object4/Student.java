@@ -4,6 +4,9 @@ public class Student {
 	private String name;
 	private String subject;
 	private int score;
+	
+	
+	
 	public Student() {
 		super();
 	}
@@ -13,6 +16,17 @@ public class Student {
 		this.subject = subject;
 		this.score = score;
 	}
+	
+	
+	
+	public String inform() {
+		String res;
+		res = getName() + getSubject() + getScore();
+		return res;
+	}
+	
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -30,9 +44,5 @@ public class Student {
 	}
 	public void setScore(int score) {
 		this.score = score;
-	}
-	
-	public String inform() {
-		return "이름 : "+this.name+" / 과목 : "+this.subject+" / 점수 : "+ this.score;
 	}
 }

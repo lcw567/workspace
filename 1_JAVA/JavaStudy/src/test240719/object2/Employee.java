@@ -6,6 +6,8 @@ public abstract class Employee {
 	private String department;
 	private int salary;
 	
+	
+	
 	public Employee() {
 		super();
 	}
@@ -17,7 +19,12 @@ public abstract class Employee {
 		this.salary = salary;
 	}
 	
-	public abstract double tax();
+	
+	
+	abstract double tax();
+	
+	
+	
 	public String getName() {
 		return name;
 	}

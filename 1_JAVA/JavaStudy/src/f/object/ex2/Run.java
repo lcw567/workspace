@@ -9,8 +9,9 @@ public class Run {
 		ref1.deposit(3000);
 		ref2.deposit(2000);
 		
-		ref1.checkMyBalance(1000);
-		ref2.checkMyBalance(0);
+		ref1.checkMyBalance();
+		ref2.checkMyBalance();
+		
 	}
 
 }

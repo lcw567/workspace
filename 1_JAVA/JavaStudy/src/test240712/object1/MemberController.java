@@ -1,143 +1,126 @@
 package test240712.object1;
 
 public class MemberController {
+	int SIZE = 10;
 	private Member[] m = new Member[SIZE];
-	public static final int SIZE = 10;
-
+	
+//	public void start() {
+//		for(int i = 0; i < SIZE; i++) {
+//			m[i].setId("empty");
+//			m[i].setName("empty");
+//			m[i].setPassword("empty");
+//			m[i].setEmail("empty");
+//			m[i].setGender("empty");
+//			m[i].setAge(-1);
+//		}
+//	}
 	public int existMemberNum() {
-		int count = 0;
-		for(int i = 0; i < m.length; i++) {
-			if (m[i] != null) {
-				count++;
-			} else {
-				break;
-			}
+		int res = 0;
+		for(int i = 0; i < SIZE; i++) {
+			if(m[i] != null && m[i].getId() != null) res++;
 		}
-		return count;
+		return res;
 	}
-
-	//inputId를 넘겨받아서 사용중 여부를 체크하고
-	//중복된 id일 경우 사용불가 -> return false
-	//중복되지 않은 id일 경우 -> return true;
-	public boolean checkId(String inputId) {
-		for(int i=0; i < m.length; i++) {
-			if(m[i] == null) {
-				return true;
-			}
-			
-			String userId = m[i].getId();
-			if(userId.equals(inputId)) {// 중복id찾음
-				return false;// 사용불가
-			}
+	public Boolean checkId(String InputId) {
+		Boolean res = false;
+		for(int i = 0; i < SIZE; i++) {
+			if(m[i] != null && m[i].getId() == InputId) res = true;
 		}
-		
-		return true; // 사용가능
+		return res;
 	}
-
 	public void insertMember(String id, String name, String password, String email, String gender, int age) {
-		for(int i=0; i<m.length; i++) {
-			if(m[i] == null) { //이부분이 비었구나
-				m[i] = new Member(id, name, password, email, gender.charAt(0), age);
+		for(int i = 0; i < SIZE; i++) {
+			if(m[i] == null) {
+				m[i] = new Member();
+				m[i].setId(id);
+				m[i].setName(name);
+				m[i].setPassword(password);
+				m[i].setEmail(email);
+				m[i].setGender(gender);
+				m[i].setAge(age);
 				break;
 			}
 		}
 	}
-
 	public String searchId(String id) {
-		for(int i=0; i<m.length; i++) {
-			//배열 m의 i번째 인덱스가 null 아니고 id가 사용자가 입력한 id와 동일할 때
-			if(m[i] != null && m[i].getId().equals(id)) {
-				return m[i].inform();
+		String res = "검색 결과가 없습니다.";
+		for(int i = 0; i < existMemberNum(); i++) {
+			if(m[i].getId().equals(id)) {
+				res = "찾으신 회원 조회 결과입니다.\n" + "아이디 : " + m[i].getId() + " / " + "이름 : " + m[i].getName() + " / " + "비밀번호 : " + m[i].getPassword() + " / " + "이메일 : " + m[i].getEmail() + " / " + "성별 : " + m[i].getGender() + " / " + "나이 : " + m[i].getAge() + " / ";
 			}
 		}
-		
-		return null;
+		return res;
 	}
-
-	public Member[] searchName(String name) {
-		Member[] mArr = new Member[this.SIZE]; // 이름이 동일한걸 담을 배열
-		
-		int index = 0;
-		for(int i=0; i<m.length; i++) {
-			if(m[i] != null && m[i].getName().equals(name)) {
-				mArr[index++] = m[i];
+	public String searchName(String name) {
+		String res = "검색 결과가 없습니다.";
+		for(int i = 0; i < existMemberNum(); i++) {
+			if(m[i].getId().equals(name)) {
+				res = "찾으신 회원 조회 결과입니다.\n" + "아이디 : " + m[i].getId() + " / " + "이름 : " + m[i].getName() + " / " + "비밀번호 : " + m[i].getPassword() + " / " + "이메일 : " + m[i].getEmail() + " / " + "성별 : " + m[i].getGender() + " / " + "나이 : " + m[i].getAge() + " / ";
 			}
 		}
-		
-		return mArr;
+		return res;
 	}
-
-	public Member[] searchEmail(String email) {
-		return null;
+	public String searchEmail(String email) {
+		String res = "검색 결과가 없습니다.";
+		for(int i = 0; i < existMemberNum(); i++) {
+			if(m[i].getId().equals(email)) {
+				res = "찾으신 회원 조회 결과입니다.\n" + "아이디 : " + m[i].getId() + " / " + "이름 : " + m[i].getName() + " / " + "비밀번호 : " + m[i].getPassword() + " / " + "이메일 : " + m[i].getEmail() + " / " + "성별 : " + m[i].getGender() + " / " + "나이 : " + m[i].getAge() + " / ";
+			}
+		}
+		return res;
 	}
-
-	//성공적으로 비밀번호 변경시 return true
-	//비밀번호 변경 실패시 return false
-	public boolean updatePassword(String id, String password) {
-		for(int i=0; i<m.length; i++) {
-			//배열 m의 i번째 인덱스가 null 아니고 id가 사용자가 입력한 id와 동일할 때
-			if(m[i] != null && m[i].getId().equals(id)) {
+	public Boolean updatePassword(String id, String password) {
+		Boolean res = false;
+		for(int i = 0; i < existMemberNum(); i++) {
+			if(m[i].getId().equals(id)) {
 				m[i].setPassword(password);
-				return true;
+				res = true;
 			}
 		}
-		
-		//배열의 모든 index에 담긴 member를 확인하였지만 id가 같은 member를 찾지 못함
-		return false;
+		return res;
 	}
-
-	//성공적으로 이름 변경시 return true
-	//이름변경 실패시 return false
-	public boolean updateName(String id, String name) {
-		for(int i=0; i<m.length; i++) {
-			//배열 m의 i번째 인덱스가 null 아니고 id가 사용자가 입력한 id와 동일할 때
-			if(m[i] != null && m[i].getId().equals(id)) {
+	public Boolean updateName(String id, String name) {
+		Boolean res = false;
+		for(int i = 0; i < existMemberNum(); i++) {
+			if(m[i].getId().equals(id)) {
 				m[i].setName(name);
-				return true;
+				res = true;
 			}
 		}
-		
-		//배열의 모든 index에 담긴 member를 확인하였지만 id가 같은 member를 찾지 못함
-		return false;
+		return res;
 	}
-
-	public boolean updateEmail(String id, String email) {
-		for(int i=0; i<m.length; i++) {
-			//배열 m의 i번째 인덱스가 null 아니고 id가 사용자가 입력한 id와 동일할 때
-			if(m[i] != null && m[i].getId().equals(id)) {
+	public Boolean updateEmail(String id, String email) {
+		Boolean res = false;
+		for(int i = 0; i < existMemberNum(); i++) {
+			if(m[i].getId().equals(id)) {
 				m[i].setEmail(email);
-				return true;
+				res = true;
 			}
 		}
-		
-		//배열의 모든 index에 담긴 member를 확인하였지만 id가 같은 member를 찾지 못함
-		return false;
+		return res;
 	}
-
-	//true -> 정상적으로 삭제됨
-	//false -> id를 찾지 못함
-	public boolean delete(String id) {
-		
-		for(int i=0; i < m.length; i++) {
+	public Boolean delete(String id) {
+		Boolean res = false;
+		for(int i = 0; i < m.length; i++) {
 			if(m[i] == null) {
-				return false;
-			} else if(m[i].getId().equals(id)) { // 찾음
-				for(int j=i; j<(m.length - 1); j++) {
+				res = false;
+			}
+			else if(m[i].getId().equals(id)) {
+				for(int j = i; j < (m.length -1); j++) {
 					m[j] = m[j+1];
 				}
-				m[m.length - 1] = null;
-				return true;
+				m[m.length -1] = null;
+				res = true;
 			}
 		}
-		
-		return false;
+		return res;
 	}
-
 	public void delete() {
 		this.m = new Member[this.SIZE];
 	}
-
-	public Member[] printAll() {
-		return this.m;
+	public void printAll() {
+		for(int i = 0; i < existMemberNum(); i++) {
+			System.out.printf("%s %s %s %s %s %d\n", m[i].getId(), m[i].getName(), m[i].getPassword(), m[i].getEmail(), m[i].getGender(), m[i].getAge());
+		}
 	}
 }

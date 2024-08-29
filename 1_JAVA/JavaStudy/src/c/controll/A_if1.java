@@ -1,4 +1,4 @@
-package c.controll;
+package C.controll;
 
 import java.util.Scanner;
 
@@ -13,60 +13,29 @@ public class A_if1 {
 	 * *조건문
 	 * "조건식"을 통해 참 또는 거짓을 판단하여 참일경우 그에 해당하는 코드를 실행
 	 * 
-	 * 조건식의 결과는 true/false여야한다.
+	 * 조건식의 결과는 true/false 이여야 한다.
 	 */
-	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
-		/*
-		 * if문 단독으로 사용하는 경우
-		 * 
-		 * if(조건식){
-		 * 	  ...실행문
-		 * }
-		 * 
-		 * 조건식이 true -> 중괄호 블럭안의 코드를 실행
-		 * 조건식이 false -> 중괄호 블럭안의 코드를 무시하고 넘어간다.
-		 */
-		
-		System.out.print("정수 : ");
+		System.out.println("정수 : ");
 		int num = sc.nextInt();
 		sc.nextLine();
 		
-		
-		if(num > 0) {
+		if (num>0) {
 			System.out.println("양수이다.");
 		}
-		
-		if(num == 0) {
+		if (num==0) {
 			System.out.println("0이다.");
 		}
-		
-		if(num < 0) {
+		if (num<0) {
 			System.out.println("음수이다.");
 		}
 		
-		//====================================================
-		
-		if(num > 0) {
-			System.out.println("양수이다.");
-		} else {
-			if(num == 0) {
-				System.out.println("0이다.");
-			} else {
-				System.out.println("음수이다.");
-			}
-		}
-		
-		//===============================================
-		if(num > 0) {
-			System.out.println("양수이다.");
-		} else if(num == 0) {
-			System.out.println("0이다.");
-		} else {
-			System.out.println("음수이다.");
+		//==============================================
+		if (num > 0) {
+			System.out.println("");
 		}
 		
 	}
+
 }

@@ -1,19 +1,15 @@
 package test240715.object1;
 
 public class Student {
-	//필드
-	//접근제한자 자료형 변수이름;
-	private String name;
-	private int classRoom;
-	private double javaScore;
-	private double sqlScore;
-	private double practiceScore;
+	String name;
+	int classRoom;
+	double javaScore, sqlScore, practiceScore;
 	
-	//생성자
+	
+	
 	public Student() {
 		super();
 	}
-
 	public Student(String name, int classRoom, double javaScore, double sqlScore, double practiceScore) {
 		super();
 		this.name = name;
@@ -23,77 +19,81 @@ public class Student {
 		this.practiceScore = practiceScore;
 	}
 	
-	//메소드
+	
+	
+	public String toString() {
+		String res;
+		res = getClassRoom() + "반 " + getName() + "학생 " + getJavaScore() + "점 " + getSqlScore() + "점 " + getPracticeScore() + "점 ";
+		return res;
+	}
+	public Boolean isPassd() {
+		Boolean res = false;
+		double sum = 0, avg;
+		sum = getJavaScore() + getSqlScore() + getPracticeScore();
+		avg = sum/3;
+		if(getJavaScore() >= 50 && getSqlScore() >= 50 && getPracticeScore() >= 50 && sum >= 60) res = true;
+		return res;
+	}
+	public void reName() {
+		int n;
+		char ntoc;
+		String ctos;
+		n = (int)(Math.random() * 25) + 65;
+		ntoc = (char)n;
+		ctos = Character.toString(ntoc);
+		n = (int)(Math.random() * 25) + 65;
+		ntoc = (char)n;
+		ctos = ctos + Character.toString(ntoc);
+		n = (int)(Math.random() * 25) + 65;
+		ntoc = (char)n;
+		ctos = ctos + Character.toString(ntoc);
+		setName(ctos);
+	}
+	public void reClass() {
+		int n;
+		n = (int)(Math.random() * 9) + 1;
+		setClassRoom(n);
+	}
+	public void reTest() {
+		int j, s, p;
+		j = (int)(Math.random() * 100);
+		s = (int)(Math.random() * 100);
+		p = (int)(Math.random() * 100);
+		setJavaScore(j);
+		setSqlScore(s);
+		setPracticeScore(p);
+	}
+	
+	
+	
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public int getClassRoom() {
 		return classRoom;
 	}
-
 	public void setClassRoom(int classRoom) {
 		this.classRoom = classRoom;
 	}
-
 	public double getJavaScore() {
 		return javaScore;
 	}
-
 	public void setJavaScore(double javaScore) {
 		this.javaScore = javaScore;
 	}
-
 	public double getSqlScore() {
 		return sqlScore;
 	}
-
 	public void setSqlScore(double sqlScore) {
 		this.sqlScore = sqlScore;
 	}
-
 	public double getPracticeScore() {
 		return practiceScore;
 	}
-
 	public void setPracticeScore(double practiceScore) {
 		this.practiceScore = practiceScore;
 	}
-	
-	public String toString() {
-		return this.classRoom + " " + this.name+ " " + this.javaScore + 
-				" " + this.sqlScore + " " + this.practiceScore;
-	}
-	
-	public double getEvg() {
-		double sum = this.javaScore + this.practiceScore + this.sqlScore;
-		return sum/3;
-	}
-	
-	public boolean isPassed() {
-		if(this.javaScore >= 50 && this.sqlScore >= 50 
-				&& this.practiceScore >= 50 && this.getEvg() >= 60) {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	public void reTest() {
-		this.setJavaScore(Math.random() * 101);
-		this.setPracticeScore(Math.random() * 101);
-		this.setSqlScore(Math.random() * 101);
-	}
 }
-
-
-
-
-
-
-
-

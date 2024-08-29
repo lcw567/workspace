@@ -22,7 +22,6 @@ public class FileByte {
 		//1. FileOutputStream 객체 생성
 		//해당파일이 없으면 새로만들어주고 통로연결 / 있으면 해당 파일에 통로연결 
 		//FileOutputStream의 두번째 매개변수에 true를 전달하면 해당 파일이 존재할 경우 기존데이터에 이어서 작성을 한다.
-	
 		try (FileOutputStream fout = new FileOutputStream("byte_test.txt", true);){
 			
 			//2. 파일에 데이터 출력

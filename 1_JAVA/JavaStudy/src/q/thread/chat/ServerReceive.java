@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class ServerReceive implements Runnable {
+public class ServerReceive implements Runnable{
 	private Socket socket;
 
 	public ServerReceive(Socket socket) {
@@ -15,15 +15,17 @@ public class ServerReceive implements Runnable {
 
 	@Override
 	public void run() {
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-			// 반복을 돌면서 버퍼에 새로운 메세지가 도착하면 받아서 출력
-			while (true) {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));){
+			//
+			while(true) {
 				String message = br.readLine();
 				System.out.println("클라이언트로부터 전달받은 메세지 : " + message);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
-
+	
+	
 }

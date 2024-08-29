@@ -1,6 +1,6 @@
 package m.api.ex1;
 
-import java.util.StringTokenizer;
+
 
 public class B_String {
 
@@ -126,36 +126,16 @@ public class B_String {
 		String str2 = String.join(",",arr);
 		System.out.println(str2);
 		
+		
+		
+		
+		
 		//방법2. 분리된 문자열들을 각각 토큰으로써 관리가능
 		//      java.util.StringTokenizer클래스를 이용
-		//      StringTokenizer stn = new StringTokenizer(문자열, 구분자)
-		StringTokenizer stn = new StringTokenizer(str,",");
+		//      StringTokenizer stn = new StringTokenizer(배열, 구분자)
+//		StringTokenizer stn = new StringTokenizer(str, ",");
 		
-		System.out.println(stn.countTokens());
 		
-		System.out.println(stn.nextToken());
-		System.out.println(stn.nextToken());
-		System.out.println(stn.nextToken());
-		System.out.println(stn.nextToken());
-		System.out.println(stn.nextToken());
-		System.out.println(stn.nextToken());
-		
-		System.out.println(stn.countTokens());
-		
-//		System.out.println(stn.nextToken()); // 더이상 토근이 남아있지 않을 때 다음토큰을 가져오려고 하면 예외발생!
-		
-		stn = new StringTokenizer(str,",");
-		//모든 토큰을 조회하는 방법1
-		int count = stn.countTokens();
-		for(int i=0; i<count; i++) {
-			System.out.println(stn.nextToken());
-		}
-		
-		//hasMoreElements -> 가져올 토근이 남아있는지 확인해주는 메소드 남아있다면 true반환 없다면 false반환
-		stn = new StringTokenizer(str,",");
-		while(stn.hasMoreElements()) {
-			System.out.println(stn.nextToken());
-		}
 	}
 }
 

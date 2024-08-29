@@ -1,5 +1,7 @@
 package test240729.object1;
 
+import java.util.Objects;
+
 public class Lottery {
 	private String name;
 	private String phone;
@@ -23,7 +25,6 @@ public class Lottery {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
 	@Override
 	public String toString() {
 		return "Lottery [name=" + name + ", phone=" + phone + "]";
@@ -35,17 +36,18 @@ public class Lottery {
 	}
 	@Override
 	public boolean equals(Object obj) {
-
-		if(obj instanceof Lottery) {
+		if (obj instanceof Lottery) {
 			Lottery lo = (Lottery)obj;
 			if(this.name.equals(lo.getName()) &&
 					this.phone.equals(lo.getPhone())) {
 				return true;
-			} else {
+			}
+			else {
 				return false;
 			}
 		}
-		
 		return false;
 	}
+	
+	
 }

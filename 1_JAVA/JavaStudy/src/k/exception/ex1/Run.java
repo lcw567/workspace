@@ -51,6 +51,6 @@ public class Run {
 			e.printStackTrace();
 		}
 		
-//		ex.myInfo(null);
+		ex.myInfo(null);
 	}
 }

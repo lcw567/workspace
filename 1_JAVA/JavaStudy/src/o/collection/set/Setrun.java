@@ -9,7 +9,7 @@ public class SetRun {
 	public static void main(String[] args) {
 		//Object에 equals() => 두 객체의 "주소값"을 비교해서 일치하면 true/일치하지 않으면 false
 		//Object에 hashCode() => 해당 객체의 "주소값"을 가지고 10진수의 형태로 만들어서 반환
-		HashSet<String> hsi = new HashSet();
+		HashSet hsi = new HashSet();
 		
 		hsi.add("반갑습니다");
 		hsi.add(new String("반갑습니다"));
