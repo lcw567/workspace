@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice4</title>    
+</head>
+<body>
+    <br>
+    <input type="number" id="val1">
+    <select name="a">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="number" id="val2">
+    <button onclick="result()">=</button>
+    <input type="text" id="result" readonly>
+    <script>
+        function result(){
+            const operator = document.querySelector("#a").value;
+            const first = Number(document.getElementById("val1").value);
+            const second = Number(document.getElementById("val2").value);
+
+            let res;
+            switch(operator){
+                case '+': 
+                    res = first + second;
+                    break;
+                case '-':
+                    res = first - second;
+                    break;
+                case '*':
+                    res = first * second;
+                    break;
+                case '/':
+                    res = first / second;
+                    break;
+                case '%':
+                    res = first % second;
+                    break;
+            }
+
+            const resultInput = document.getElementById("result")
+            resultInput.value = res;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <style>
+        .area{
+            border: 1px solid red;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>취미</legend>
+            <input type="checkbox" name="hobby" id="all" class="hobby" value="전체선택" onchange="allCheck()">
+            <label for="all">전체선택</label>
+
+            <input type="checkbox" name="hobby" id="combine" class="hobby" value="종합" onchange="checkBoxTrigger()"> 
+            <label for="combine">종합</label>
+
+            <input type="checkbox" name="hobby" id="novel" class="hobby" value="소설" onchange="checkBoxTrigger()"> 
+            <label for="novel">소설</label>
+
+            <input type="checkbox" name="hobby" id="poetry" class="hobby" value="시/에세이" onchange="checkBoxTrigger()"> 
+            <label for="poetry">시/에세이</label>
+
+            <input type="checkbox" name="hobby" id="economy" class="hobby" value="경제/경영" onchange="checkBoxTrigger()"> 
+            <label for="economy">경제/경영</label>
+
+            <input type="checkbox" name="hobby" id="selfDevelop" class="hobby" value="자기계발" onchange="checkBoxTrigger()"> 
+            <label for="selfDevelop">자기계발</label>
+
+            <input type="checkbox" name="hobby" id="child" class="hobby" value="아동" onchange="checkBoxTrigger()"> 
+            <label for="child">아동</label> <br> 
+
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            
+            <input type="checkbox" name="hobby" id="travel" class="hobby" value="여행" onchange="checkBoxTrigger()"> 
+            <label for="travel">여행</label>
+
+            <input type="checkbox" name="hobby" id="science" class="hobby" value="과학" onchange="checkBoxTrigger()"> 
+            <label for="science">과학</label>
+
+            <input type="checkbox" name="hobby" id="history" class="hobby" value="역사/문화" onchange="checkBoxTrigger()"> 
+            <label for="history">역사/문화</label>
+
+            <input type="checkbox" name="hobby" id="foreignLang" class="hobby" value="외국어" onchange="checkBoxTrigger()"> 
+            <label for="foreignLang">외국어</label>
+
+            <input type="checkbox" name="hobby" id="computer" class="hobby" value="컴퓨터" onchange="checkBoxTrigger()"> 
+            <label for="computer">컴퓨터</label>
+
+            <input type="checkbox" name="hobby" id="comic" class="hobby" value="만화" onchange="checkBoxTrigger()"> 
+            <label for="comic">만화</label>
+
+        </fieldset>
+    </form>
+    <br>
+    <button onclick="checkHobby()">카테고리 선택</button>
+    <div class="area" id="area1"></div>
+    <script>
+        function allCheck(){
+            let allCheckBox = document.getElementById("all");
+
+            let hobbyList = document.getElementsByName("hobby");
+
+            for(let checkBox of hobbyList) {
+                checkBox.checked = allCheckBox.checked;
+            }
+            checkHobby();
+        }
+
+        function checkBoxTrigger(){
+            let allCheck = true;
+
+            let hobbyList = document.getElementsByName("hobby");
+            for(let checkBox of hobbyList){
+                if(checkBox.id === "all"){
+                    continue;
+                }   
+
+                if(!checkBox.checked){
+                    allCheck = false;  
+                }
+            }
+
+            let allCheckBox = document.getElementById("all");
+            allCheckBox.checked = allCheck;
+        }
+
+        function checkHobby(){
+            let hobbyList = document.getElementsByName("hobby");
+            let checkedHobby = "";
+
+            for(let checkBox of hobbyList){
+                if(checkBox.checked){
+                    checkedHobby += checkBox.value + " "
+                }
+            }
+            area1.innerText = checkedHobby;
+            if(hobbyList[0].checked){
+                    document.getElementById("area1").innerText = "전체 선택";
+                }
+        }
+    </script>
+
+</body>
+</html>
