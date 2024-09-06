@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice7</title>
+    <script 
+        src="https://code.jquery.com/jquery-3.7.1.js" 
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://code.jquery.com/ui/1.14.0/jquery-ui.js" 
+        integrity="sha256-u0L8aA6Ev3bY2HI4y0CAyr9H8FRWgX4hZ9+K7C2nzdc=" 
+        crossorigin="anonymous">
+    </script>
+    <style>
+        fieldset{
+            text-align: center;
+            gap: 24px;
+        }
+        .box{
+            background-color: lightgrey;
+            padding: 12px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Practice5</h1>
+    <form action="">
+        <fieldset>
+            <legend align="center">검색할 항복을 선택하세요</legend>
+            <input type="radio" id="title" name="category" onclick="showSearchBox()" value="title">
+            <label for="title">제목</label>
+    
+            <input type="radio" id="date" name="category" value="date" onclick="showSearchBox()">
+            <label for="date">날짜</label>
+            
+            <input type="radio" id="writer" name="category" value="writer" onclick="showSearchBox()">
+            <label for="writer">작성자</label>
+        </fieldset>
+    </form>
+    <br>
+    <div class="box">
+        <form action="">
+            <label>검색할 제목을 입력하세요 : </label>
+            <br>
+            <input type="text" name="title" size="50">
+            <input type="submit" value="검색" onclick="return false">
+        </form>
+    </div>
+    <div class="box">
+        <form action="">
+            <label>검색할 날짜를 선택하세요 : </label>
+            <br>
+            <input type="date" name="start"> - <input type="date" name="end">
+            <input type="submit" value="검색" onclick="return false">
+        </form>
+    </div>
+    <script>
+            
+    </script>
+</body>
+</html>

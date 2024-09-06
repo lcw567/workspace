@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice6</title>
+    <style>
+        #area1{
+            border: 1px solid black;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Practice4</h1>
+    <form action="">
+        <fieldset>
+            <legend>구매정보</legend>
+            <li>
+                구매자 : <input type="text" id="buyer" placeholder="구매자의 이름을 입력하세요">
+            </li>
+            <li>
+                상품명 : <input type="text" id="productName" placeholder="구매 상품 명을 입력하세요">
+            </li>
+            <li>
+                가격 : <input type="number" id="price" placeholder="구매가격을 입력하세요">
+            </li>
+            <li>
+                구매 수량 : <input type="number" id="amount" placeholder="최소 10" min="10" max="100" step="10">
+            </li>
+            <li>
+                납품 등급 : <input type="range" id="rank" min="1" max="9" step="2">
+            </li>
+            <li>
+                기타 사항 : <input type="text" id="etc">
+            </li>
+
+        </fieldset>
+    </form>
+    
+    <br>
+
+    <button onclick="print()">입력 값 출력하기</button>
+
+    <div class="area" id="area1"></div>
+
+    <script>
+        function print(){
+            const buyer = document.getElementById("buyer").value
+            const productName = document.getElementById("productName").value
+            const price = document.getElementById("price").value
+            const amount = document.getElementById("amount").value
+            const rank = document.getElementById("rank").value
+            const etc = document.getElementById("etc").value
+            const str = `구매자 명 : ${buyer}<br>
+                         상품 명 : ${productName}<br>
+                         가격 : ${price}<br>
+                         구매 수량 : ${amount}<br>
+                         납품등급 : ${rank}<br>
+                         기타사항 : ${etc}`
+            document.querySelector("#area1").innerHTML = str;
+        }
+    </script>
+
+</body>
+</html>
