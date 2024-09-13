@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오태영</title>
+    <style>
+        /* div{
+            border: 1px solid black;
+        } */
+        body{
+            width: 100%;
+            height: 100%;
+            background-color: #deebf7;
+            font-size: large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            vertical-align: middle;
+            margin-top: 10%;
+        }
+        #square{
+            width: 440px;
+            height: 400px;
+            padding: 50px 20px 50px 20px;
+            background-color: #ededed;
+            border: 1px solid #e0e1e0;
+        }
+        input{
+            border-style: none;
+            background-color: #ededed;
+            font-size: large;
+        }
+        textarea{
+            border-style: none;
+            background-color: #ededed;
+            font-size: large;
+        }
+        #btn{
+            background-color: #c5e0b4;
+            font-size: large;
+            width: 100%;
+            height: 50px;
+        }
+        #btnWrap{
+            margin-top: 300px;
+            border: 0px;
+        }
+        .a{
+            width: 100px;
+            float: left;
+        }
+        .b{
+            width: 290px;
+            float: right;
+        }
+        .c{
+            padding: 30px 0px 0px 0px;
+            width: 120px;
+            float: left;
+            margin-top: 30px;
+        }
+        .d{
+            padding: 30px 0px 0px 0px;
+            width: 290px;
+            float: right;
+            margin-top: 30px;
+        }
+        #area1{
+            float: right;
+            font-size: small;
+            color: lightgrey;
+            margin-right: 13px;
+            margin-top: 10px;
+        }
+        #area2{
+            font-size: small;
+            color: red;
+        }
+        #area3{
+            font-size: small;
+            color: red;
+        }
+        #area4{
+            float: right;
+            font-size: small;
+            color: red;
+            margin-right: 13px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="square">
+        <div class="a">
+            <b>아이디</b>
+            <br><br>
+            <b>패스워드</b>
+        </div>
+        <div class="b">
+            <textarea rows="1" id="userId" cols="32" placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " style="resize: none;"></textarea>
+            <div id="area2"></div>
+            <br>
+            <textarea rows="1" id="pwd" cols="32" placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " style="resize: none;" onclick="password()"></textarea>
+            <div id="area3"></div>
+        </div>
+        <div id="area1"></div>
+        <div class="c">
+            <div id="area5"></div>
+            <b>패스워드 확인</b>
+            <br><br>
+            <div id="area6"></div>
+            <b>이메일</b>
+            <br><br>
+            <div id="area7"></div>
+            <b>주소</b>
+        </div>
+        <div class="d">
+            <textarea rows="1" id="pwd1" cols="30" placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " style="resize: none;"></textarea>
+            <div id="area4"></div>
+            <br><br>
+            <textarea rows="1" cols="15" placeholder="_ _ _ _ _ _ _ _ @" style="resize: none;"></textarea>
+            <textarea rows="1" cols="15" placeholder="_ _ _ _ _ _ _ " style="resize: none;"></textarea>
+            <br><br>
+            <textarea rows="1" cols="30" placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " style="resize: none;"></textarea>
+            <br><br>
+            <textarea rows="1" cols="30" placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " style="resize: none;"></textarea>
+        </div>
+        <br><br><br>
+        <div id="btnWrap">
+            <input type="button" id="btn" value="가입" onclick="allInput()">
+        </div>
+    </div>
+
+    <!--
+
+    2. 아이디, 패스워드, 패스워드 확인을 입력하지 않고 다음 입력 요소로 이동하는 경우 "필수 입력 항목 입니다" 라는 메시지가 입력 요소 하단에 나오게 한다.
+
+    -->
+    <script>
+        function password(){
+            let area1 = document.getElementById('area1');
+            area1.innerText = "영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자";
+        }
+        function allInput(){
+            let id = document.getElementById('userId');
+            let pwd = document.getElementById('pwd');
+            let pwd1 = document.getElementById('pwd1');
+            let idb = true, pwdb = true, pwd1b = true;
+            let cnt = 0;
+
+            if(id.value === ""){
+                idb = false;
+                cnt++;
+                area2.innerText = "필수 입력 항목 입니다";
+            }
+            if(pwd.value === ""){
+                pwdb = false;
+                cnt++;
+                area3.innerText = "필수 입력 항목 입니다";
+            }
+            if(pwd1.value === ""){
+                pwd1b = false;
+                cnt++;
+                area4.innerText = "필수 입력 항목 입니다";
+            }
+            if(cnt === 1){
+                area5.innerHTML = "<br>";
+            }
+            if(cnt === 2){
+                area5.innerHTML = "<br>";
+                area6.innerHTML = "<br>";
+            }
+            if(cnt === 3){
+                area5.innerHTML = "<br>";
+                area6.innerHTML = "<br>";
+                area7.innerHTML = "<br>";
+            }
+        }
+    </script>
+</body>
+</html>
