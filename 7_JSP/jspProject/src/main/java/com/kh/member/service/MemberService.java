@@ -48,7 +48,7 @@ public class MemberService {
 		return updateMember;
 	}
 
-	public int deleteMember(String userId) {
+	public int deleteMember(String userId, String userPwd) {
 		Connection conn = getConnection();
 		int result = new MemberDao().deleteMember(conn, userId);
 		
