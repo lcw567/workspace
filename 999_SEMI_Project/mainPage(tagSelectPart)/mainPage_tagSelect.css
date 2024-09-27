@@ -1,0 +1,57 @@
+body{
+    font-family: "Noto Sans KR", system-ui;
+    margin: 0px;
+    padding: 0px;
+}
+#mainPage_tagSelect_table{
+    text-align: center;
+    color: rgba(119, 128, 136, 120);
+    font-weight: bold;
+}
+.selected_tag{
+    font-family: "Noto Sans KR", system-ui;
+    color: white;
+    border: 1px solid rgba(123, 188, 176, 146);
+    border-radius: 25px;
+    background-color: rgba(123, 188, 176, 146);
+    width: 130px;
+    height: 45px;
+    font-weight: 500;
+}
+.unselected_tag{
+    font-family: "Noto Sans KR", system-ui;
+    color: rgba(73, 85, 96, 80);
+    border: 1px solid rgba(123, 188, 176, 146);
+    border-radius: 25px;
+    background-color: white;
+    width: 130px;
+    height: 45px;
+    font-weight: 500;
+}
+#mainPage_tagSelect_table .mainPage_tag{
+    padding: 20px 3px 20px 3px;
+}
+#mainPage_tagSelect_table_title{
+    font-size: 35px;
+    font-weight: 700;
+    color: black;
+    padding: 15px;
+}
+#mainPage_tagSubmit{
+    font-family: "Noto Sans KR", system-ui;
+    color: white;
+    border: 1px solid rgba(123, 188, 176, 146);
+    border-radius: 25px;
+    background-color: rgba(123, 188, 176, 146);
+    width: 130px;
+    height: 45px;
+    font-weight: 500;
+}
+.selected_tag:hover{
+    color: rgba(73, 85, 96, 80);
+    background-color: white;
+}
+.unselected_tag:hover{
+    color: white;
+    background-color: rgba(123, 188, 176, 146);
+}

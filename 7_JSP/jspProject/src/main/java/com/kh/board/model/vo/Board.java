@@ -10,6 +10,7 @@ public class Board {
 	private int count;
 	private String createDate;
 	private String status;
+	private String titleImg;
 	public Board() {
 		super();
 	}
@@ -25,8 +26,9 @@ public class Board {
 		this.createDate = createDate;
 	}
 
+	
 	public Board(int boardNo, int boardType, String category, String boardTitle, String boardContent,
-			String boardWriter, int count, String createDate, String status) {
+			String boardWriter, int count, String createDate, String status, String titleImg) {
 		super();
 		this.boardNo = boardNo;
 		this.boardType = boardType;
@@ -37,7 +39,9 @@ public class Board {
 		this.count = count;
 		this.createDate = createDate;
 		this.status = status;
+		this.titleImg = titleImg;
 	}
+
 	public int getBoardNo() {
 		return boardNo;
 	}
@@ -92,12 +96,23 @@ public class Board {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	public String getTitleImg() {
+		return titleImg;
+	}
+
+	public void setTitleImg(String titleImg) {
+		this.titleImg = titleImg;
+	}
+
 	@Override
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", boardType=" + boardType + ", category=" + category + ", boardTitle="
 				+ boardTitle + ", boardContent=" + boardContent + ", boardWriter=" + boardWriter + ", count=" + count
-				+ ", createDate=" + createDate + ", status=" + status + "]";
+				+ ", createDate=" + createDate + ", status=" + status + ", titleImg=" + titleImg + "]";
 	}
+
+	
 	
 	
 }

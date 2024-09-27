@@ -13,22 +13,22 @@
 			   ENROLL_DATE,
 			   MODIFY_DATE,
 			   STATUS
-		FROM MEMBER
-		WHERE USER_ID = ?
-			AND USER_PWD =?
-			AND STATUS = 'Y'
+		FROM MEMBER 
+		WHERE USER_ID = ? 
+		  AND USER_PWD = ?
+		  AND STATUS = 'Y'
 	</entry>
 	<entry key="insertMember">
 		INSERT INTO MEMBER
 		(
-			USER_NO,
-			USER_ID,
-			USER_PWD,
-			USER_NAME,
-			PHONE,
-			EMAIL,
-			ADDRESS,
-			INTEREST
+		   USER_NO,
+		   USER_ID,
+		   USER_PWD,
+		   USER_NAME,
+		   PHONE,
+		   EMAIL,
+		   ADDRESS,
+		   INTEREST
 		)
 		VALUES
 		(
@@ -47,7 +47,7 @@
 		SET USER_PWD = ?,
 			MODIFY_DATE = SYSDATE
 		WHERE USER_ID = ?
-			AND USER_PWD = ?
+		  AND USER_PWD = ?
 	</entry>
 	<entry key="selectMember">
 		SELECT USER_NO,
@@ -61,24 +61,30 @@
 			   ENROLL_DATE,
 			   MODIFY_DATE,
 			   STATUS
-		FROM MEMBER
-		WHERE USER_ID = ?
-			AND STATUS = 'Y'
+		FROM MEMBER 
+		WHERE USER_ID = ? 
+		  AND STATUS = 'Y'
 	</entry>
 	<entry key="deleteMember">
 		UPDATE MEMBER
-		SET STATUS = 'N',
-			MODIFY_DATE = SYSDATE
-		WHERE USER_ID = ?
+		   SET STATUS = 'N',
+		       MODIFY_DATE = SYSDATE
+		 WHERE USER_ID = ?
+		   AND USER_PWD = ? 
 	</entry>
 	<entry key="updateMember">
 		UPDATE MEMBER
-		SET USER_NAME = ?,
-			PHONE = ?,
-			EMAIL = ?,
-			ADDRESS = ?,
-			INTEREST = ?,
-			MODIFY_DATE = SYSDATE
-		WHERE USER_ID = ?
+		   SET USER_NAME = ?,
+		   	   PHONE = ?,
+		   	   EMAIL = ?,
+		   	   ADDRESS = ?,
+		   	   INTEREST = ?,
+		   	   MODIFY_DATE = SYSDATE
+		 WHERE USER_ID = ?
+	</entry>
+	<entry key="idCheck">
+		SELECT COUNT(*) "COUNT"
+		  FROM MEMBER
+		 WHERE USER_ID = ?
 	</entry>
 </properties>

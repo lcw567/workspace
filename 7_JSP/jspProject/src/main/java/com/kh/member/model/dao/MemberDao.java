@@ -1,5 +1,7 @@
 package com.kh.member.model.dao;
 
+import static com.kh.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,7 +11,6 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import com.kh.member.model.vo.Member;
-import static com.kh.common.JDBCTemplate.close;
 
 public class MemberDao {
 	private Properties prop = new Properties();
@@ -24,8 +25,8 @@ public class MemberDao {
 		}
 	}
 	
-	public Member loginMember(Connection conn, String userId, String userPwd) {
-		//select -> Member객체 조회 -> ResultSet객체
+	public Member loginMember(Connection conn, String userId, String userPwd){
+		//select -> Member조회 -> ResultSet객체
 		
 		Member m = null;
 		PreparedStatement pstmt = null;
@@ -38,7 +39,7 @@ public class MemberDao {
 			pstmt.setString(1, userId);
 			pstmt.setString(2, userPwd);
 			
-			rset = pstmt.executeQuery(); //조회결과가 있다면 한행 반환 | 없다면 반환X
+			rset = pstmt.executeQuery(); // 조회결과가 있다면 한행 반환 | 없다면 반환X
 			if(rset.next()) {
 				m = new Member(
 							rset.getInt("user_no"),
@@ -54,6 +55,7 @@ public class MemberDao {
 							rset.getString("status")
 						);
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -83,7 +85,6 @@ public class MemberDao {
 			pstmt.setString(7, m.getInterest());
 			
 			result = pstmt.executeUpdate();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -92,7 +93,7 @@ public class MemberDao {
 		
 		return result;
 	}
-
+	
 	public int updatePwdMember(Connection conn, String userId, String userPwd, String updatePwd) {
 		//update => 처리된 행수
 		int result = 0;
@@ -108,6 +109,7 @@ public class MemberDao {
 			pstmt.setString(3, userPwd);
 			
 			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -116,22 +118,21 @@ public class MemberDao {
 		
 		return result;
 	}
-
-	public Member selectMember(Connection conn, String userId) {
-		//select -> Member객체 조회 -> ResultSet객체
+	
+	public Member selectMember(Connection conn, String userId){
+		//select -> Member조회 -> ResultSet객체
 		
 		Member m = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectMember");
-		System.out.println(sql);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			
-			rset = pstmt.executeQuery(); //조회결과가 있다면 한행 반환 | 없다면 반환X
+			rset = pstmt.executeQuery(); // 조회결과가 있다면 한행 반환 | 없다면 반환X
 			if(rset.next()) {
 				m = new Member(
 							rset.getInt("user_no"),
@@ -156,8 +157,9 @@ public class MemberDao {
 		
 		return m;
 	}
-
-	public int deleteMember(Connection conn, String userId) {
+	
+	public int deleteMember(Connection conn, String userId, String userPwd) {
+		//delete(update) -> 처리된 행
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -167,6 +169,7 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, userId);
+			pstmt.setString(2, userPwd);
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -174,13 +177,14 @@ public class MemberDao {
 		} finally {
 			close(pstmt);
 		}
-		System.out.println("dao "+result);
+		
 		return result;
 	}
-
+	
 	public int updateMember(Connection conn, Member m) {
 		//update -> 처리된 행 수
 		int result = 0;
+		
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("updateMember");
 		
@@ -202,5 +206,32 @@ public class MemberDao {
 		}
 		
 		return result;
+	}
+	
+	public int idCheck(Connection conn, String userId){
+		//select -> 같은 id로 되어있는 멤버 숫자만 조회 -> ResultSet객체
+		
+		int count = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("idCheck");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			
+			rset = pstmt.executeQuery(); // 조회결과가 있다면 한행 반환 | 없다면 반환X
+			if(rset.next()) {
+				count = rset.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return count;
 	}
 }
