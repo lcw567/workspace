@@ -1,6 +1,8 @@
 body{
+    font-family: "Noto Sans KR", system-ui;
     margin: 0px;
     padding: 0px;
+    
 }
 .footer table{
     margin-left: auto;
@@ -31,10 +33,10 @@ body{
 
 #footer_logo_letter{
     font-size: 25px;
-    font-weight: 900;
     text-align: left;
     margin: 0px;
     padding: 0px;
+    font-family: "Jua", sans-serif;
 }
 #footer_logo_picture{
     padding-right: 10px;
