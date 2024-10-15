@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+/* 
+	common tag
+*/
+body{
+    font-family: "Noto Sans KR", system-ui;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*
+	main
+*/
+.side{
+        width: 20%;
+    }
+#content{
+    width: 95%;
+    height: 130px;
+    margin: 10px;
+}
+
+#content:hover{
+    border-radius: 20px;
+    background-color: lightgrey
+}
+
+#wrapper{
+    display: flex;
+    width: 100%;
+}
+header{
+    width: 100%;
+}
+tr{
+    height: 40px;
+}
+.nav-area{ 
+    display: flex;
+    justify-content: center;
+    background: white;
+    border-top: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    width: 100%;
+    padding: 0;
+}
+
+button{
+    width: 80px;
+    height: 25px;
+    font-size: 9px;
+    border: 0px;
+    background: #7bbcb0;
+    color: white;
+    border-radius: 40px;
+    font-size: medium;
+    
+}
+
+.area{
+    width: 50%;
+    min-width: 650px;
+    margin: 10px;
+    padding: 10px;
+}
+
+#img{
+    width: 120px;
+    height: 120px;
+    margin: 5px;
+    float: left;
+    border-radius: 20px;
+    background-color: #959c9b;
+}
+
+#text{
+    padding: 50px 0;
+    padding-left: 150px;
+    font-size: 20px;
+}
+#text2{
+	color: rgba(119, 128, 136, 120);
+    padding-left: 150px;
+    font-size: 13px;
+}
+
+#wish{
+    background-color: #DDEEEB;
+    width: auto;
+    height: 250px;
+    border-radius: 20px;
+}
+
+#tour a{
+    color: rgb(5, 5, 5);
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+#tagsty{
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    font-size: 9px;
+    border: 0px;
+    background: #7bbcb0;
+    color: white;
+    border-radius: 40px;
+    font-size: medium;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.swiper {
+width: 100%;
+height: 100%;
+}
+
+.swiper-slide {
+width: 100%;
+height: 100%;
+padding: 10px;
+text-align: center;
+font-size: 18px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.swiper-slide img {
+display: block;
+width: 100%;
+height: 80%;
+border-radius: 20px;
+object-fit: cover;
+}
+
+.swiper-slide p {
+display: block;
+width: 100%;
+text-align: center;
+}
+.chtag{
+	display: block;
+}
+
+.tagbtn{
+    width: 80px;
+    height: 25px;
+    font-size: 9px;
+    border: 0px;
+    background: #7bbcb0;
+    color: white;
+    border-radius: 40px;
+    font-size: medium;
+    margin: 10px auto; /* 버튼을 중앙으로 정렬 */
+    text-align: center;
+}

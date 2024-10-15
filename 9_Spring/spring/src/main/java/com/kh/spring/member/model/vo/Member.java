@@ -2,9 +2,19 @@ package com.kh.spring.member.model.vo;
 
 import java.sql.Date;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class Member {
 	private String userId;
 	private String userPwd;
@@ -17,5 +27,4 @@ public class Member {
 	private Date enrollDate;
 	private Date modifyDate;
 	private String status;
-	
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: 해당 mapper파일의 고유한 별칭 -->
+
+<mapper namespace="businessMapper">
+<resultMap type="Business" id="businessResultSet">
+<!-- <result column="테이블 컬럼명" property="객체의 필드명"/> -->
+<result column="BS_NAME" property="bsName"/>
+<result column="BS_ID" property="bsId"/>
+<result column="BS_PWD" property="bsPwd"/>
+<result column="BS_EMAIL" property="bsEmail"/>
+<result column="BS_TEL" property="bsTel"/>
+<result column="BS_ADDRESS" property="bsAddress"/>
+<result column="LOCATION" property="bslocation"/>
+<result column="BS_TITLE" property="bsTitle"/>
+<result column="HT_MAP_LATITUDE" property="latitude"/>
+<result column="HT_MAP_LONGITUDE" property="longitude"/>
+<result column="ENROLL_DATE" property="enrolldate"/>
+<result column="MODIFY_DATE" property="modifydate"/>
+<result column="STATUS" property="status"/>
+</resultMap>
+<!--  
+  		*SELECT문 전송시
+  		<select id="각sql문의 식별자" [parameterType="전달받을 자바타입"] resultMap="결과객체" | resultType="결과타입">
+  		</select>
+    -->
+<select id="loginBusiness" parameterType="Business" resultMap="businessResultSet"> SELECT BS_NAME, BS_ID, BS_PWD, BS_EMAIL, BS_TEL, BS_ADDRESS, LOCATION, BS_TITLE, HT_MAP_LATITUDE, HT_MAP_LONGITUDE, ENROLL_DATE, MODIFY_DATE, STATUS FROM TB_BUSINESS WHERE BS_ID = #{bsId} AND BS_PWD = #{bsPwd} AND STATUS = 'Y' </select>
+<!--  
+  		*DML문 일 경우 
+  		<insert | update | delete id = "식별자" [parameterType="전달받을 자바타입"]>		
+   -->
+<insert id="insertBusiness" parameterType="Business"> INSERT INTO TB_BUSINESS ( BS_NAME, BS_ID, BS_PWD, BS_EMAIL, BS_TEL, BS_ADDRESS, BS_TITLE ) VALUES ( #{bsName}, #{bsId}, #{bsPwd}, #{bsEmail}, #{bsTel}, #{bsAddress}, #{bsTitle} ) </insert>
+<select id="searchidBusiness" parameterType="Business" resultMap="businessResultSet"> SELECT BS_ID FROM TB_BUSINESS WHERE BS_NAME = #{bsName} AND BS_PWD = #{bsPwd} </select>
+<select id="searchpwdBusiness" parameterType="Business" resultMap="businessResultSet"> SELECT BS_PWD FROM TB_BUSINESS WHERE BS_NAME = #{bsName} AND BS_ID = #{bsId} </select>
+<update id="updateBusiness" parameterType="Business"> UPDATE TB_BUSINESS SET BS_NAME = #{bsName}, BS_PWD = #{bsPwd}, BS_EMAIL = #{bsEmail}, BS_TEL = #{bsTel}, BS_ADDRESS = #{bsAddress}, LOCATION = #{bslocation}, BS_TITLE = #{bsTitle}, MODIFY_DATE = SYSDATE WHERE BS_ID = #{bsId} </update>
+</mapper>

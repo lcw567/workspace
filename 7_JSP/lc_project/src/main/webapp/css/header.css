@@ -1,0 +1,240 @@
+body{
+    font-family: "Noto Sans KR", system-ui;
+    margin: 0px;
+    padding: 0px;
+}
+#header_wrapper{
+    height: 90px;
+    background-color: rgba(221, 238, 235, 216);
+    /* border: 1px solid black; */
+}
+#header_wrapper1{
+    width: 209px;
+    height: 90px;
+    float: left;
+    /* border: 1px solid black; */
+}
+#header_logo{
+    padding-left: 15px;
+    padding-top: 15px;
+    float: left;
+}
+#header_letter{
+    font-family: "Jua", sans-serif;
+    color: black;
+    text-decoration: none;
+    text-decoration-line: none;
+    font-size: 25px;
+    width: 110px;
+    height: 89px;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+#header_letter a:link, a:visited{
+    text-decoration: none;
+    color: black;
+}
+#header_signIn{
+    width: 150px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    float: right;
+    /* border: 1px solid black; */
+}
+#header_signIn button{
+    width: 120px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: rgba(123, 188, 176, 146);
+    border: none;
+    font-size: large;
+    color: white;
+}
+
+/* --------------------------------------------- */
+
+.header{
+    position: relative;
+}
+.header_bar{
+    background: transparent;
+    position: absolute;
+    left:0px;
+    top: 0px;
+    width: 100%;
+    height: 80px;
+    background-color : #000000; opacity : 26%;
+}
+.header_pic{
+    position :relative;
+}
+.header_name{
+    position: absolute;
+    left: 120px;
+    top: 25px;
+    font-weight: 500;
+    font-size: x-large;
+    color: white;
+    font-family: "Jua", sans-serif;
+}
+.header_btn{
+    position: absolute;
+    border-radius: 30px;
+    width: 120px;
+    height: 40px;
+    border: none;
+    background-color: #7BBCB0;
+    color: white;
+    font-family: "Noto Sans KR", system-ui;
+    right: 50px;
+    top: 19px;
+    cursor: pointer;
+}
+.dropdown{
+   position: absolute;
+   right: 33px;
+    top: 14px;
+    cursor: pointer;
+    width : 120px;
+    height : 50px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+#hamBtn{
+    display: flex;
+    align-items: center;
+    float: left;
+    position: relative;
+    left: 10px;
+    top: 7px;
+    padding: 0px;
+}
+#avatar{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    float: right;
+    position: relative;
+    left: 26px;
+    padding: 0px
+}
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.header_main_logo{
+    position: absolute;
+    width: 80px;
+    height: 64px;
+    top: 8px;
+    left: 25px;
+}
+.textarea_container{
+    margin: auto;
+    position: relative;
+    top: -121px;
+}
+.textarea {
+    display: flex;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0px 0px 20px 0px #000000;
+    width: 900px;
+    height: 75px;
+    margin: auto;
+}
+.input_1{
+   position: relative;
+    width: 900px;
+    height: 75px;
+    border-radius: 50px 0px 0px 50px;
+    border: none;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-family: "Noto Sans KR", system-ui;
+    box-sizing: border-box;
+    text-align: left;
+    padding-left: 28px;
+    padding-bottom: 6px;
+}
+.input_1::placeholder {
+    color: rgba(119, 128, 136, 120);
+    font-size: 25px;
+    font-family: "Jua", sans-serif;
+    bold: 300px;
+}
+
+textarea::placeholder{
+    font-size: larger;
+    color: #000000;
+    font-weight: bold;
+    padding-left: 30px ;
+    padding-top: 15px;
+}
+textarea{
+    width: 100%;
+    height: 6.25em;
+    border: none;
+    resize: none;
+}
+.research_btn{
+    position: relative;
+    width: 95px;
+    left: 9px;
+}
+.search_text{
+    width: 900px;
+    padding-bottom: 20px;
+    margin: auto;
+}
+.search_button1{
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    font-family: "Noto Sans KR", system-ui;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+}
+.search_button2{
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    font-family: "Noto Sans KR", system-ui;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    left: 35px;
+}
+.search_button3{
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    font-family: "Noto Sans KR", system-ui;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    left: 55px;
+}
+.search_button4{
+    box-sizing: border-box;
+    background: rgba(123, 188, 176, 146);
+    border: none;
+    border-radius: 50px;
+    font-family: "Noto Sans KR", system-ui;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    left: 460px;
+}

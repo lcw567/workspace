@@ -1,0 +1,197 @@
+@charset "UTF-8";
+body{
+        	font-family: "Noto Sans KR", sans-serif;
+		    margin: 0px;
+		    padding: 0px;
+		}
+        .side{
+            width: 20%;
+        }
+        .content{
+            
+            width: 60%;
+        }
+        #wrapper{
+            width: 100%;
+        }
+        
+        .test{
+            position: relative;
+        }
+        .nav-area{ 
+            display: flex;
+            justify-content: center;
+            background: white;
+            border-top: 1px solid rgb(0, 0, 0);
+            border-bottom: 1px solid rgb(0, 0, 0);
+            width: 100%;
+            padding: 0;
+        }
+        .menu{
+            display: table-cell;
+            width: 150px;
+            height: 50px;
+        }
+        .menu a{
+            color: rgb(168, 168, 168);
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            line-height: 50px;
+            text-decoration: none;
+        }
+        .menu a:hover{
+            color:black;
+            border-top: 2px solid rgb(0, 0, 0);
+            border-bottom: 2px solid rgb(0, 0, 0);
+        }
+        #category{
+        	float: right;
+        }
+        #category button{
+            width: 60px;
+            height: 17px;
+            font-size: 9px;
+            border: 0px;
+            background: #7bbcb0;
+            color: white;
+            border-radius: 40px;
+            
+        }
+        .sidenav-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background-color: #7bbcb0;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .sidenav-item {
+            background-color: #ddeeeb;
+            border-radius: 15px;
+            margin-bottom: 0px;
+            padding: 0px;
+        }
+
+        .sidenav-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .sidenav-item p {
+            margin: 5px 0;
+        }
+
+        .sidenav-footer {
+            margin-top: 20px;
+        }
+
+        .sidenav-footer button {
+            background-color: #7bbcb0;
+            border: none;
+            color: white;
+            padding: 0px;
+            border-radius: 15px;
+            width: 100%;
+            cursor: pointer;
+            height: 50px;
+            font-size: 13px;
+        }
+
+        .sidenav-footer button:hover {
+            background-color: #5da396;
+            
+        }
+
+        .nav-area.fixed {
+            position: fixed; /* 스크롤 시 상단에 고정 */
+            top: 0;
+            left: 50%; /* 화면 중앙에 배치 */
+            transform: translateX(-50%); /* 가운데 정렬 */
+            width: 100%; /* width는 JavaScript에서 설정 */
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 고정 시 그림자 추가 */
+            border-top: 0px solid rgb(0, 0, 0);
+            border-bottom: 0px solid rgb(0, 0, 0);
+        }
+        /* 기본 상태: 상단에서 40%에 위치 */
+        .sidenav {
+            width: 150px;
+            background-color: #ddeeeb;
+            padding: 10px;
+            position: absolute;
+            top: 40%;
+            right: 50px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            transition: top 0.5s ease-in-out; /* top 값이 변할 때 부드럽게 변화 */
+        }
+
+        /* 스크롤 후 중앙에 고정될 때 적용될 스타일 */
+        .sidenav.fixed {
+            position: fixed;
+            top: 50%; /* 화면 중앙에 고정 */
+            transform: translateY(-50%);
+            right: 50px;
+            z-index: 100;
+        }
+        .bpcontent{
+            padding: 0;
+            height: 500px;
+        }
+        .spcontent{
+            display: flex;
+            width: auto;
+        }
+        .spcontent img{
+            width: auto;
+        }
+        #review{
+            width: 90%;
+            height: 70%;
+            margin-top: 20px;
+            margin-left: 50px;
+            margin-right: 50px;
+            
+        }
+        #reviewbt{
+            height: 30px;
+            font-size: 15px;
+            float: right;
+            margin-top: 10px;
+            margin-right: 50px;
+        }
+        .recommendtr {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            background-color: #ddeeeb;
+            padding: 10px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .recommendtr-item {
+            margin: 15px;
+            background-color: #ddeeeb;
+            border-radius: 15px;
+            margin-bottom: 0px;
+            padding: 0px;
+            
+        }
+
+        .recommendtr img {
+            width: auto;
+            height: 80px;
+            border-radius: 10px;
+        }
+
+        .recommendtr p {
+            margin: 5px 0;
+        }

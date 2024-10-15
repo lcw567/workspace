@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!-- settings: mybatis구동시 선언할 설정들을 작성하는 영역 -->
+  <settings>
+  	<!-- 만약 null로 데이터가 전달되었다면 빈칸이 아닌 null로 인식해라 -->
+  	<setting name="jdbcTypeForNull" value="NULL"/>
+  </settings>
+  
+  <!-- typeAliases : VO/DTO클래스들의 풀클래스명을 단순한 클래스명(별칭)으로 사용하기위한 별칭등록을 하는 영역 -->
+  <typeAliases>
+
+  	<typeAlias type="com.lc.project.travel.model.vo.Travel" alias="Travel" />
+  	<typeAlias type="com.lc.project.rentcar.model.vo.RentCar" alias="RentCar" />
+  	<typeAlias type="com.lc.project.member.model.vo.Member" alias="Member" />
+    <typeAlias type="com.lc.project.business.model.vo.Business" alias="Business"/>
+    <typeAlias type="com.lc.project.hotel.model.vo.Hotel" alias="Hotel"/>
+  </typeAliases>
+
+  <!-- environments : mybatis에서 연동할 db정보들을 등록하는 영역 -->
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="PROJECT"/>
+        <property name="password" value="PROJECT"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <!-- mappers : 실행할 sql문들을 기록해둔 mapper파일들을 등록하는 영역 -->
+  <mappers>
+  
+   <mapper resource="/mappers/member-mapper.xml"/>
+   <mapper resource="/mappers/travel-mapper.xml"/>
+   <mapper resource="/mappers/business-mapper.xml"/>
+   <mapper resource="/mappers/rentcar-mapper.xml"/>
+   <mapper resource="/mappers/hotel-mapper.xml"/>
+   
+  </mappers>
+</configuration>

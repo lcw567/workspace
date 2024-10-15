@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: 해당 mapper파일의 고유한 별칭 -->
+<mapper namespace="hotelMapper">
+	<resultMap id="hotelResultSet" type="Hotel">
+	<!--<result column="테이블 컬럼명" property="객체의 필드명"/>-->
+	<result column="BS_ID" property="bsid"/>
+	<result column="BS_PWD" property="bspwd"/>
+	<result column="BS_NAME" property="bsName"/>
+	<result column="BS_EMAIL" property="bsEmail"/>
+	<result column="BS_TEL" property="bsTel"/>
+	<result column="BS_ADDRESS" property="bsAddress"/>
+	<result column="LOCATION" property="picInfo"/>
+	<result column="BS_TITLE" property="hName"/>
+	<result column="HT_MAP_LATITUDE" property="ht_map_lat"/>
+	<result column="HT_MAP_LONGITUDE" property="ht_map_long"/>
+	<result column="ROOM_PRICE" property="price" />  <!-- 방 가격 (Room Price) -->
+	</resultMap>
+	<select id="getHotelList" parameterType="String" resultMap="hotelResultSet"> 
+		SELECT BS_TITLE, H.LOCATION, HT_MAP_LATITUDE, HT_MAP_LONGITUDE, R.ROOM_PRICE 
+		FROM TB_BUSINESS H 
+		JOIN TB_ROOM R ON H.BS_ID = R.BS_ID 
+		WHERE BS_ADDRESS LIKE  #{add} || '%'</select>
+</mapper>

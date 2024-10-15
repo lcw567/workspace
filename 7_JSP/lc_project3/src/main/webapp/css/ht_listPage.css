@@ -1,0 +1,166 @@
+@charset "UTF-8";
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.side{
+    width: 20%;
+}
+.content{
+    
+    width: 60%;
+}
+#wrapper{
+    width: 100%;
+    font-family: "Noto Sans KR", sans-serif;
+}
+header{
+    width: 100%;
+}
+
+/* 기본 상태: 상단에서 40%에 위치 */
+.sidenav {
+    width: 180px;
+    height: 700px;
+    background-color: #ddeeeb;
+    padding: 10px;
+    position: absolute;
+    top: 30%;
+    left: 120px;
+    border-radius: 15px;
+    overflow: auto; /* 스크롤바를 자동으로 생성 */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: top 0.5s ease-in-out; /* top 값이 변할 때 부드럽게 변화 */
+}
+
+/* 스크롤 후 중앙에 고정될 때 적용될 스타일 */
+.sidenav.fixed {
+    position: fixed;
+    top: 30%; /* 화면 중앙에 고정 */
+    left: 120px;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+.sidenav-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #7bbcb0;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.sidenav-item {
+    background-color: #ddeeeb;
+    border-radius: 15px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.sidenav-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.sidenav-item input {
+    margin-bottom: 20px ;
+}
+
+.sidenav-footer {
+    margin-top: 20px;
+}
+
+.sidenav-footer button {
+    background-color: #7bbcb0;
+    border: none;
+    color: white;
+    padding: 0px;
+    border-radius: 15px;
+    width: 100%;
+    cursor: pointer;
+    height: 50px;
+    font-size: 13px;
+}
+
+.sidenav-footer button:hover {
+    background-color: #5da396;
+    
+}
+#serv > button{
+    width: 80px;
+    height: 17px;
+    font-size: 10px;
+    border: 1px solid #7bbcb0;
+    background: #FFFFFF;
+    color: #000000;
+    border-radius: 40px;
+    margin: 5px;
+}
+.reviewcon table{
+    width: 100%;
+    height: 220px;
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.large-image {
+    width: 100%;
+    height: 381px;
+}
+.small-image {
+    width: 100%;
+    height: 190px;
+}
+.reservepic{
+    border-radius: 15px;
+    width:200px;
+    height:200px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin: 20px;
+}
+.container{
+    width: 97%; 
+    height: 150px; 
+    background: white; 
+    border-radius: 15px;
+    margin-right: 20px;
+}
+#reviewbt{
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    float: right;
+}
+.recommendtr {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    background-color: #ddeeeb;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.recommendtr-item {
+    margin: 15px;
+    background-color: #ddeeeb;
+    border-radius: 15px;
+    margin-bottom: 0px;
+    padding: 0px;
+    
+}
+
+.recommendtr img {
+    width: auto;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.recommendtr p {
+    margin: 5px 0;
+}

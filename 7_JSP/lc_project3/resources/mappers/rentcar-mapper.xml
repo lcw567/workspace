@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  namespace: 해당 mapper파일의 고유한 별칭  -->
+<mapper namespace="rentcarMapper">
+	<resultMap id="TravelResultSet" type="Travel">
+		<result column="AC_NAME" property="trName" />
+		<result column="AC_ADDRESS" property="trAddress" />
+		<result column="TR_INFO" property="trInfo" />
+		<result column="ACT_PERSONNEL" property="trPersonal" />
+		<result column="ACT_LOCATION" property="trLocation" />
+		<result column="ACT_THEME" property="trId" />
+		<result column="TR_MAP_LATITUDE" property="trMapLatitude" />
+		<result column="TR_MAP_LONGITUDE" property="trMapLongitude" />
+		<result column="FIELD" property="count" />
+		<result column="LOCATION" property="picInfo"/>
+	</resultMap>
+	<select id="carList" resultType="RentCar">
+		SELECT CAR_ID AS carId,
+			   CAR_NUM AS carNum,
+			   CAR_NAME AS carName,
+			   CAR_PRICE AS carPrice,
+			   CAR_INFO AS carInfo,
+			   CAR_PIC AS carPic
+		  FROM TB_RENTCAR
+		  ORDER BY CAR_NUM
+	</select>
+	<update id="bookingCar">
+		UPDATE TB_CAR_BOOKING
+		   SET CAR_RECIEVE_PLACE = #{location},
+		       CAR_RETURN_PLACE = #{location},
+		       CAR_TIME_START = #{startDate},
+		       CAR_TIME_OVER = #{endDate},
+		       CAR_USER = #{loginUser}
+		 WHERE CAR_NUM = #{carNum}
+	</update>
+</mapper>

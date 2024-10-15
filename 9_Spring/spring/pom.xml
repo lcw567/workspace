@@ -9,7 +9,7 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	
 	<!-- pom.xml
-		project[프로젝트 정보 + properties + (repositories) + dependencies + build]
+		project[프로젝트 정보 + properties + [repositories] + dependencies + build]
 	 -->
 	
 	<properties>
@@ -122,7 +122,6 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		
 		<!-- Lombok라이브러리 -->
 		<dependency>
@@ -134,21 +133,18 @@
 		
 		<!-- 데이터베이스 관련 라이브러리 -->
 		<!-- ojdbc6 -->
-		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 -->
 		<dependency>
 		    <groupId>com.oracle.database.jdbc</groupId>
 		    <artifactId>ojdbc6</artifactId>
 		    <version>11.2.0.4</version>
 		</dependency>
 		
-		<!-- 스프링에서 JDBC기능을 사용하기 위한 별도의 라이브러리 spring jdbc  -->
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<!-- 스프링에서 JDBC기능을 사용하기 위한 별도의 라이브러리 spring-jdbc -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-jdbc</artifactId>
 		    <version>${org.springframework-version}</version>
 		</dependency>
-				
 		
 		<!-- mybatis -->
 		<dependency>
@@ -156,7 +152,7 @@
 		    <artifactId>mybatis</artifactId>
 		    <version>3.5.7</version>
 		</dependency>
-				
+		
 		<!-- 스프링에서 mybatis를 사용하기위한 라이브러리 -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
@@ -164,13 +160,53 @@
 		    <version>2.0.6</version>
 		</dependency>
 		
-		<!-- 커넥션풀을 사용하기위한 라이브러리 commons-dbcp -->
+		<!-- 커넥션풀을 사용하기위한 라이브러리commons-dbcp -->
 		<dependency>
 		    <groupId>commons-dbcp</groupId>
 		    <artifactId>commons-dbcp</artifactId>
 		    <version>1.4</version>
 		</dependency>
-				
+		
+		<!-- 스프링 시큐리티 -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>5.5.3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>5.5.3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>5.5.3</version>
+		</dependency>
+		
+		<!-- 파일 업로드를위한 라이브러리 commons-fileupload -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.3.3</version>
+		</dependency>
+		
+		<!--commons-io -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
+		</dependency>
+		<!-- gson -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.8.9</version>
+		</dependency>
+		
+		
 		
 	</dependencies>
 	

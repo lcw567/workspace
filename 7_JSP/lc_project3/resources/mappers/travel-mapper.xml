@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  namespace: 해당 mapper파일의 고유한 별칭  -->
+<mapper namespace="travelMapper">
+   <resultMap id="TravelResultSet" type="Travel">
+      <result column="AC_NAME" property="trName" />
+      <result column="AC_ADDRESS" property="trAddress" />
+      <result column="TR_INFO" property="trInfo" />
+      <result column="ACT_PERSONNEL" property="tr_personnel" />
+      <result column="ACT_LOCATION" property="tr_location" />
+      <result column="ACT_THEME" property="tr_theme" />
+      <result column="TR_MAP_LATITUDE" property="tr_map_lat" />
+      <result column="TR_MAP_LONGITUDE" property="tr_map_long" />
+      <result column="FIELD" property="count" />
+      <result column="ACT_PERSONNEL" property="tr_personnel" />
+      <result column="ACT_LOCATION" property="tr_location" />
+      <result column="ACT_THEME" property="tr_theme" />
+      <result column="TR_MAP_LATITUDE" property="tr_map_lat" />
+      <result column="TR_MAP_LONGITUDE" property="tr_map_long" />
+      <result column="LOCATION" property="picInfo"/>
+   </resultMap>
+   <select id="selectTravelTag" resultMap="TravelResultSet">
+      SELECT AC_NAME,
+            AC_ADDRESS,
+            TR_INFO,
+            ACT_PERSONNEL,
+            ACT_LOCATION,
+            ACT_THEME,
+            TR_MAP_LATITUDE,
+            TR_MAP_LONGITUDE,
+            LOCATION
+      FROM TB_TOUR
+      WHERE ACT_PERSONNEL LIKE '%' || #{personnel} || '%' AND
+           ACT_LOCATION = #{location} AND
+           ACT_THEME = #{theme}
+   </select>
+
+   <select id="selectTravelList" resultMap="TravelResultSet">
+      SELECT ac_name,
+            ac_address
+      FROM (SELECT *,ROWNUM
+             FROM (SELECT *
+                    FROM TB_TOUR
+                       ))
+      WHERE ROWNUM &lt;= 10
+   </select>
+   <select id="selectTravel" resultMap="TravelResultSet">
+      SELECT AC_NAME,
+            AC_ADDRESS,
+            TR_INFO,
+            (
+                  SELECT COUNT(ac_name)
+                    FROM tb_wishlist
+                    WHERE ac_name = #{trName}
+            ),
+            LOCATION
+        FROM TB_TOUR
+       WHERE AC_NAME = #{trName}
+   </select>
+   <select id="locationList" resultMap="TravelResultSet">
+      SELECT AC_NAME, AC_ADDRESS,LOCATION
+        FROM(SELECT AC_NAME,ROWNUM
+           FROM(SELECT AC_NAME,COUNT(AC_NAME)
+                FROM TB_TOUR
+                LEFT JOIN TB_WISHLIST USING(AC_NAME)
+                GROUP BY AC_NAME
+                ORDER BY COUNT(AC_NAME)DESC))
+        JOIN TB_TOUR using(AC_NAME)
+       WHERE ROWNUM &lt;= 4
+         AND ACT_LOCATION = #{location}
+         AND ACT_THEME NOT IN ('맛집', '축제')
+
+   </select>
+   <select id="foodList" resultMap="TravelResultSet">
+      SELECT AC_NAME, AC_ADDRESS,LOCATION
+        FROM(SELECT AC_NAME,ROWNUM
+           FROM(SELECT AC_NAME,COUNT(AC_NAME)
+                FROM TB_TOUR
+                LEFT JOIN TB_WISHLIST USING(AC_NAME)
+                GROUP BY AC_NAME
+                ORDER BY COUNT(AC_NAME)DESC))
+        JOIN TB_TOUR using(AC_NAME)
+       WHERE ROWNUM &lt;= 4
+         AND ACT_LOCATION = #{location}
+         AND ACT_THEME = '맛집'
+   </select>
+   <select id="festivalList" resultMap="TravelResultSet">
+      SELECT AC_NAME, AC_ADDRESS,LOCATION
+        FROM(SELECT AC_NAME,ROWNUM
+           FROM(SELECT AC_NAME,COUNT(AC_NAME)
+                FROM TB_TOUR
+                LEFT JOIN TB_WISHLIST USING(AC_NAME)
+                GROUP BY AC_NAME
+                ORDER BY COUNT(AC_NAME)DESC))
+        JOIN TB_TOUR using(AC_NAME)
+       WHERE ROWNUM &lt;= 4
+         AND ACT_LOCATION = #{location}
+         AND ACT_THEME = '축제'
+   </select>
+   <select id="otherList" resultMap="TravelResultSet">
+      SELECT AC_NAME, AC_ADDRESS,LOCATION
+        FROM(SELECT AC_NAME,ROWNUM
+           FROM(SELECT AC_NAME,COUNT(AC_NAME)
+                FROM TB_TOUR
+                LEFT JOIN TB_WISHLIST USING(AC_NAME)
+                GROUP BY AC_NAME
+                ORDER BY COUNT(AC_NAME)DESC))
+        JOIN TB_TOUR using(AC_NAME)
+       WHERE ROWNUM &lt;= 4
+         AND ACT_LOCATION = #{location}
+         AND AC_NAME != #{trName}
+   </select>
+   
+   <select id="selectWishList" resultMap="TravelResultSet">
+      SELECT AC_NAME,
+            AC_ADDRESS,
+            TR_INFO,
+            ACT_PERSONNEL,
+            ACT_LOCATION,
+            ACT_THEME,
+            TR_MAP_LATITUDE,
+            TR_MAP_LONGITUDE,
+            LOCATION
+       FROM TB_TOUR 
+       LEFT JOIN TB_WISHLIST USING(AC_NAME)
+       WHERE WISH_USER = #{userId}
+   </select>
+   <select id="searchTour" resultMap="TravelResultSet">
+      SELECT AC_NAME,
+         AC_ADDRESS,
+         TR_INFO,
+         ACT_PERSONNEL,
+         ACT_LOCATION,
+         ACT_THEME,
+         TR_MAP_LATITUDE,
+         TR_MAP_LONGITUDE,
+         LOCATION
+      FROM TB_TOUR
+      WHERE AC_NAME LIKE '%' || #{browser} || '%'
+   </select>
+   <select id="getWishList" resultMap="TravelResultSet" parameterType="String"> SELECT AC_NAME, AC_ADDRESS, TR_MAP_LATITUDE, TR_MAP_LONGITUDE, LOCATION FROM TB_TOUR LEFT JOIN TB_WISHLIST USING(AC_NAME) WHERE WISH_USER = #{userId} </select>
+</mapper>

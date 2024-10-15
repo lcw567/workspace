@@ -30,7 +30,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
     
 <style>
-    div{box-sizing: border-box;}
     #header{
         width:80%;
         height:100px;
@@ -63,6 +62,8 @@
     #header a{text-decoration:none; color:black}
     
     /* 세부 페이지마다 공통적으로 유지할 style */
+    div{box-sizing: border-box;}
+    
     .content{
         background-color:rgb(247, 245, 245);
         width:80%;

@@ -1,0 +1,169 @@
+body{
+    font-family: "Noto Sans KR", system-ui;
+    margin: 0px;
+    padding: 0px;
+}
+#header_wrapper{
+    height: 90px;
+    background-color: rgba(221, 238, 235, 216);
+    /* border: 1px solid black; */
+}
+#header_wrapper1{
+    width: 209px;
+    height: 90px;
+    float: left;
+    /* border: 1px solid black; */
+}
+#header_logo{
+    padding-left: 15px;
+    padding-top: 15px;
+    float: left;
+    /* border: 1px solid black; */
+}
+#header_letter{
+    font-family: "Jua", sans-serif;
+    color: black;
+    text-decoration: none;
+    text-decoration-line: none;
+    font-size: 25px;
+    width: 110px;
+    height: 89px;
+    float: right;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+#header_letter a:link, a:visited{
+    text-decoration: none;
+    color: black;
+}
+#header_toBusiness{
+    width: 150px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    float: left;
+    /* border: 1px solid black; */
+}
+#header_toBusiness button{
+    width: 140px;
+    height: 50px;
+    border-radius: 25px;
+    font-weight: 800;
+    background-color: black;
+    border: none;
+    color: white;
+}
+#header_wrapper2{
+    width: 300px;
+    float: right;
+    display: flex;
+    align-items: center;
+    float: right;
+    /* border: 1px solid black; */
+}
+#myPage_Circle{
+    width : 120px;
+    height : 50px;
+    border-radius: 50px;
+    background-color: white;
+    /* border: 1px solid black; */
+}
+#hamBtn{
+    display: flex;
+    align-items: center;
+    float: left;
+    padding-top: 14px;
+    padding-left: 20px;
+}
+#avatar{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    float: right;
+    padding-top: 7px;
+    padding-right: 15px;
+}
+#myPage_body{
+    margin: 50px;
+}
+.myPage{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    box-sizing: border-box;
+}
+
+#profile{
+    width: 350px;
+    min-width: 250px;
+    height: 500px;
+    border-radius: 25px;
+    text-align: center;
+    background-color: #EFF0F2;
+    position: relative;
+    left: 740px;
+    top: 100px;
+}
+
+#profile > button {
+    border: none;
+    border-bottom: 1px #5F5F5F solid;
+}
+
+#img-area{
+    width: 100%;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#img-area > img{
+    width: 130px;
+    height: 130px;
+    border-radius: 60px;
+    object-fit: cover;
+    margin: 30px;
+}
+
+#text-area{
+    margin: 30px 0;
+}
+
+#text-area > ul > li{
+    margin: 10px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+#text-area > ul > li::marker{
+    font-size: large;
+}
+
+.profile_info{
+    position: relative;
+    bottom: 23px;
+}
+
+.userName{
+    position: relative;
+    bottom: 8px;
+}
+
+.updateprofile{
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+}
+.booking-check{
+    position: relative;
+    left: 280px;
+    bottom: 330px;
+}
+
+.booking-check > ul > li{
+    margin: 10px;
+    text-align: left;
+    word-wrap: break-word;
+}
