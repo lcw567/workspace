@@ -14,7 +14,7 @@
 		<div class="innerOuter">
 			<h4>게시글 Top 5</h4>
 			<br>
-			<table id="boardList">
+			<table>
 				<thead class="table table-hover" align="center">
 					<tr>
 						<th>글번호</th>
@@ -36,35 +36,7 @@
 	</div>
 	<script>
 		function init(){
-			getTopBoardList(function(boardList){
-				console.log(boardList)
-				drawTopListBody(document.querySelector("#boardList > tbody"), boardList);
-			})
-		}
 
-		function drawTopListBody(parant, boardList){
-			$(parant).empty();
-
-			for(const b of boardList){
-				const tr = document.createElement("tr");
-				tr.innerHTML = "<td>" + b.boardNo + "</td>"
-							 + "<td>" + b.boardTitle + "</td>"
-							 + "<td>" + b.boardWriter + "</td>"
-							 + "<td>" + b.count + "</td>"
-							 + "<td>" + b.createDate + "</td>"
-							 + "<td>" + (b.originName != null ? "★" : "") + "</td>";
-				parant.appendChild(tr);
-			}
-		}
-
-		function getTopBoardList(callback){
-			$.ajax({
-				url: "topList.bo",
-				success: callback,
-				error : function(){
-					console.log("top5 ajax실패")
-				}
-			})
 		}
 	</script>
 	<jsp:include page="common/footer.jsp" />
