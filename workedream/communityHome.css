@@ -1,4 +1,6 @@
-
+* {
+    font-size: 1.2rem;
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -6,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 40px;
 }
 
 .title h1 {
@@ -115,21 +117,22 @@ body {
 .category-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.2rem; /* 버튼 간격 */
     justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
 }
 
 .category-tags button {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     border: 1.5px solid #4E21A8;
-    border-radius: 5px;
     background-color: #ffffff;
     color: #4E21A8;
+    border-radius: 5px;
     cursor: pointer;
-    font-weight: normal;
+    font-weight: bold;
     width: calc(100% / 6 - 1rem); /* 한 줄에 여섯 개 배치 */
     text-align: center;
-    min-width: 80px;
+    min-width: 50px;
 }
 
 .post-list {
@@ -179,10 +182,7 @@ body {
 
 
 
-.category-tags button:hover {
-    background-color: #E1DEF1; /* 호버 시 배경색 변경 */
-}
-
+.category-tags button:hover,
 .category-tags button:focus {
-    background-color: #E1DEF1; /* 포커스 시 배경 색상 */
+    background-color: #E1DEF1;
 }
