@@ -1,9 +1,4 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+
 
 body {
     font-family: Arial, sans-serif;
@@ -105,7 +100,8 @@ body {
 /* 댓글과 조회수 아이콘 컨테이너 */
 .popular-week li .icon-group {
     display: flex;
-    gap: 4rem; 
+    gap: 1rem; /* 간격 조정 */
+    align-items: center;
 }
 /* 주제별 커뮤니티 태그 */
 
@@ -119,24 +115,22 @@ body {
 .category-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 3rem;
-    justify-content: center; /* 중앙 정렬 */
-    margin: 1rem 0;
-
+    gap: 1.2rem; /* 버튼 간격 */
+    justify-content: center;
 }
 
 .category-tags button {
-    padding: 0.5rem;
-    border: 1px solid #4E21A8;
+    padding: 1.5rem;
+    border: 1.5px solid #4E21A8;
     border-radius: 5px;
     background-color: #ffffff;
     color: #4E21A8;
     cursor: pointer;
     font-weight: normal;
-    flex: 1; 
-    min-width: 100px; 
+    width: calc(100% / 6 - 1rem); /* 한 줄에 여섯 개 배치 */
+    text-align: center;
+    min-width: 80px;
 }
-
 
 .post-list {
     margin: 1rem;
@@ -184,3 +178,11 @@ body {
 }
 
 
+
+.category-tags button:hover {
+    background-color: #E1DEF1; /* 호버 시 배경색 변경 */
+}
+
+.category-tags button:focus {
+    background-color: #E1DEF1; /* 포커스 시 배경 색상 */
+}
