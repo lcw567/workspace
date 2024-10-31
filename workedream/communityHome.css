@@ -1,5 +1,5 @@
 * {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 body {
@@ -9,6 +9,16 @@ body {
     padding: 0;
     background-color: #ffffff;
     padding: 40px;
+}
+
+.home-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .title h1 {

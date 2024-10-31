@@ -1,16 +1,26 @@
 
 /* 기본 스타일 */
 * {
-    
-    box-sizing: border-box;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 body {
     font-family: Arial, sans-serif;
-    color: #000;
+    color: #000000;
+    margin: 0;
+    padding: 0;
     background-color: #ffffff;
     padding: 40px;
+}
+
+.list-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* 제목 스타일 */
@@ -32,7 +42,7 @@ body {
 }
 
 .category-tags button {
-    padding: 1rem 1.5rem;
+    padding: 1rem ;
     border: 1.5px solid #4E21A8;
     background-color: #ffffff;
     color: #4E21A8;
@@ -164,6 +174,7 @@ body {
 
 .post-list tbody tr:hover {
     background-color: #E1DEF1; /* 마우스를 올렸을 때의 배경색 */
+    cursor: pointer;
 }
 
 
